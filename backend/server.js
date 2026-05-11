@@ -7,8 +7,17 @@ const morgan = require('morgan');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const ALLOWED = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173')
+  .split(',').map(o => o.trim());
+
 app.use(helmet());
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || ALLOWED.includes('*') || ALLOWED.includes(origin)) return cb(null, true);
+    cb(new Error('Not allowed by CORS'));
+  },
+  credentials: true,
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 
@@ -33,19 +42,24 @@ app.use('/api/marketplace', require('./routes/marketplace'));
 app.use('/api/notifications', require('./routes/notifications'));
 
 // Public stats endpoint for landing page
-app.get('/api/public/stats', (req, res) => {
-  const db = require('./db');
-  const transactions = db.all('transactions');
-  res.json({
-    farmers:     db.all('workers').length,
-    crops:       db.all('crops').length,
-    livestock:   db.all('livestock').length,
-    farms:       db.all('farms').length,
-    revenue:     transactions.filter(t => t.type === 'income').reduce((s, t) => s + (t.amount || 0), 0),
-    users:       db.all('users').length,
-    products:    db.all('marketplace_products').length,
-    predictions: 1247,  // simulated ML calls
-  });
+app.get('/api/public/stats', async (req, res) => {
+  try {
+    const db = require('./db');
+    const [workers, crops, livestock, farms, transactions, users, products] = await Promise.all([
+      db.all('workers'), db.all('crops'), db.all('livestock'), db.all('farms'),
+      db.all('transactions'), db.all('users'), db.all('marketplace_products'),
+    ]);
+    res.json({
+      farmers:     workers.length,
+      crops:       crops.length,
+      livestock:   livestock.length,
+      farms:       farms.length,
+      revenue:     transactions.filter(t => t.type === 'income').reduce((s, t) => s + (t.amount || 0), 0),
+      users:       users.length,
+      products:    products.length,
+      predictions: 1247,
+    });
+  } catch (e) { res.status(500).json({ error: e.message }); }
 });
 
 app.get('/api/health', (_, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
