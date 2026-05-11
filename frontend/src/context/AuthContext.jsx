@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
     setUser(null);
   }, []);
 
-  const demoLogin = useCallback(() => login('admin@agrifarm.com', 'admin123'), [login]);
+  const demoLogin = useCallback(() => login('admin@cropmind.app', 'admin123'), [login]);
 
   return (
     <AuthContext.Provider value={{ user, token, login, register, logout, demoLogin, isAuthenticated: !!token }}>

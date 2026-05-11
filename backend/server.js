@@ -40,6 +40,8 @@ app.use('/api/farms', require('./routes/farms'));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/marketplace', require('./routes/marketplace'));
 app.use('/api/notifications', require('./routes/notifications'));
+app.use('/api/chat', require('./routes/chat'));
+app.use('/api/payments', require('./routes/payments'));
 
 // Public stats endpoint for landing page
 app.get('/api/public/stats', async (req, res) => {

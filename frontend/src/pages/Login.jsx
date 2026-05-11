@@ -58,7 +58,7 @@ export default function Login() {
               <Leaf className="w-8 h-8 text-white" />
             </div>
             <div className="text-left">
-              <h1 className="text-2xl font-bold text-white">AgriFarm</h1>
+              <h1 className="text-2xl font-bold text-white">CropMind</h1>
               <p className="text-green-400 text-sm">Management System</p>
             </div>
           </Link>
@@ -134,19 +134,19 @@ export default function Login() {
             {demoLoading ? (
               <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/></svg>
             ) : <Zap className="w-4 h-4 text-yellow-400" />}
-            Try Demo (admin@agrifarm.com)
+            Try Demo (admin@cropmind.app)
           </button>
 
           {/* Demo credentials box */}
           <div className="mt-4 bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-3.5 text-xs space-y-1">
             <p className="text-yellow-300 font-semibold">Demo Credentials</p>
-            <p className="text-yellow-200/80">Email: <span className="font-mono">admin@agrifarm.com</span></p>
+            <p className="text-yellow-200/80">Email: <span className="font-mono">admin@cropmind.app</span></p>
             <p className="text-yellow-200/80">Password: <span className="font-mono">admin123</span></p>
           </div>
 
           {/* Register link */}
           <p className="text-center text-green-300 text-sm mt-6">
-            New to AgriFarm?{' '}
+            New to CropMind?{' '}
             <Link to="/register" className="text-green-400 hover:text-white font-semibold underline underline-offset-2 transition">
               Create an account
             </Link>

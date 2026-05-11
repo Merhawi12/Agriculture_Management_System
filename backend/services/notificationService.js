@@ -45,7 +45,7 @@ async function sendEmail(to, subject, html) {
   }
   try {
     const info = await getTransporter().sendMail({
-      from: `AgriManager <${EMAIL_USER}>`,
+      from: `CropMind <${EMAIL_USER}>`,
       to: Array.isArray(to) ? to.join(',') : to,
       subject, html,
     });
@@ -76,7 +76,7 @@ async function dispatch(notification, recipients) {
   if (channels.includes('email')) {
     const emails = recipients.filter(r => r.email).map(r => r.email);
     if (emails.length) {
-      const html = `<h2>${title}</h2><p>${message}</p><p style="color:#666;font-size:12px">AgriManager Platform</p>`;
+      const html = `<h2>${title}</h2><p>${message}</p><p style="color:#666;font-size:12px">CropMind Platform</p>`;
       results.email = await sendEmail(emails, title, html);
     }
   }

@@ -3,13 +3,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import {
   Wheat, LayoutDashboard, Sprout, Beef, Package, DollarSign,
   Users, Wrench, ShoppingCart, Cloud, Brain, Satellite, Map,
-  UserCog, Shield, Bell, Store, Check, ChevronRight, Globe,
-  Wifi, MessageSquare, Lock, Database, RefreshCw, Menu, X,
-  TrendingUp, BarChart2, Leaf, Star, Phone, Mail, Twitter,
-  Facebook, Linkedin, ArrowRight, Play, Zap, Award, Heart
+  UserCog, Shield, Bell, Check, Globe,
+  Wifi, MessageSquare, Menu, X,
+  TrendingUp, BarChart2, Star, Phone,
+  Linkedin, ArrowRight, Play, Heart
 } from 'lucide-react';
 import {
-  AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid,
+  AreaChart, Area, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, PieChart, Pie, Cell
 } from 'recharts';
 import { publicApi } from '../services/api';
@@ -35,7 +35,7 @@ const FEATURES = [
 
 const TESTIMONIALS = [
   { name: 'James M.', role: 'Farm Manager', location: 'Nakuru, Kenya', avatar: '👨🏾‍🌾', rating: 5,
-    text: 'AgriManager transformed how I run my 108-hectare farm. The AI yield predictions helped me increase output by 35% in one season. The SMS alerts are a game-changer!' },
+    text: 'CropMind transformed how I run my 108-hectare farm. The AI yield predictions helped me increase output by 35% in one season. The SMS alerts are a game-changer!' },
   { name: 'Amara D.', role: 'Agribusiness Owner', location: 'Accra, Ghana', avatar: '👩🏾‍💼', rating: 5,
     text: 'The marketplace feature connected me directly to processors in Accra. No more middlemen. My revenue doubled in 6 months. Works perfectly offline too!' },
   { name: 'Fatuma O.', role: 'Agronomist', location: 'Dar es Salaam, Tanzania', avatar: '👩🏿‍🔬', rating: 5,
@@ -43,15 +43,12 @@ const TESTIMONIALS = [
 ];
 
 const PRICING = [
-  { plan: 'Starter', price: 'Free', period: '', color: 'border-gray-200',
-    desc: 'Perfect for smallholder farmers', badge: null,
-    features: ['1 Farm', '3 Users', 'Crop & Livestock tracking', 'Basic weather', 'Community support'] },
-  { plan: 'Pro', price: 'KES 2,999', period: '/month', color: 'border-primary-500', badge: 'Most Popular',
+  { plan: 'Free', price: 'Free', period: '', color: 'border-gray-200',
+    desc: 'Perfect for smallholder farmers', badge: null, trial: 'Free for 7 days',
+    features: ['Crop Management', 'Livestock Tracking', 'Basic Weather Insights', 'Inventory Management', 'Community Support'] },
+  { plan: 'Pro', price: 'UGX 89,000', period: '/month', color: 'border-primary-500', badge: 'Most Popular', trial: null,
     desc: 'For growing commercial farms',
-    features: ['5 Farms', '20 Users', 'All 14 modules', 'AI/ML predictions', 'SMS & email alerts', 'Marketplace access', 'Priority support'] },
-  { plan: 'Enterprise', price: 'Custom', period: '', color: 'border-gray-200',
-    desc: 'For large agribusinesses & cooperatives', badge: null,
-    features: ['Unlimited farms', 'Unlimited users', 'Custom ML models', 'API access', 'White-label option', 'Dedicated success manager', 'SLA guarantee'] },
+    features: ['Access to All 14 Modules', 'AI & ML Predictions', 'SMS & Email Alerts', 'Marketplace Access', 'Supply Chain Management', 'Equipment Tracking', 'Financial & Accounting Tools', 'Priority Support', 'Dedicated Success Manager'] },
 ];
 
 const AFRICA_FEATURES = [
@@ -156,7 +153,7 @@ export default function Landing() {
     { label: 'Farmers Using Platform', value: stats?.users || 850, suffix: '+' },
     { label: 'Crops Tracked',          value: stats?.crops || 6,   suffix: '' },
     { label: 'Countries',              value: 12,                  suffix: '' },
-    { label: 'Revenue Tracked',        value: stats ? Math.round(stats.revenue / 1000) : 1247, suffix: 'K KES' },
+    { label: 'Revenue Tracked',        value: stats ? Math.round(stats.revenue / 1000) : 1247, suffix: 'K UGX' },
     { label: 'AI Predictions Made',    value: stats?.predictions || 1247, suffix: '+' },
     { label: 'Uptime',                 value: 99, suffix: '.9%' },
   ];
@@ -248,7 +245,7 @@ export default function Landing() {
           </div>
 
           <p className="mt-4 text-sm text-green-600">
-            Demo login: <span className="text-green-400 font-mono">admin@agrifarm.com</span> / <span className="text-green-400 font-mono">admin123</span>
+            Demo login: <span className="text-green-400 font-mono">admin@cropmind.app</span> / <span className="text-green-400 font-mono">admin123</span>
           </p>
 
           {/* Dashboard mockup */}
@@ -258,10 +255,10 @@ export default function Landing() {
                 <div className="w-3 h-3 rounded-full bg-red-400" />
                 <div className="w-3 h-3 rounded-full bg-yellow-400" />
                 <div className="w-3 h-3 rounded-full bg-green-400" />
-                <span className="ml-2 text-primary-400 text-xs font-mono">agrimanager.app/dashboard</span>
+                <span className="ml-2 text-primary-400 text-xs font-mono">cropmind.app/dashboard</span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
-                {[['🌾','Crops','6 Active'],['🐄','Livestock','9 Animals'],['👥','Workers','8 Staff'],['💰','Revenue','KES 1.5M']].map(([e,l,v]) => (
+                {[['🌾','Crops','6 Active'],['🐄','Livestock','9 Animals'],['👥','Workers','8 Staff'],['💰','Revenue','UGX 5.5M']].map(([e,l,v]) => (
                   <div key={l} className="bg-primary-900/60 rounded-xl p-3 text-left">
                     <span className="text-2xl">{e}</span>
                     <p className="text-primary-400 text-xs mt-1">{l}</p>
@@ -575,17 +572,23 @@ export default function Landing() {
             <p className="text-gray-500 mt-4">No hidden fees. Cancel anytime. Local currency billing available.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRICING.map(({ plan, price, period, color, desc, badge, features }) => (
+            {PRICING.map(({ plan, price, period, color, desc, badge, trial, features }) => (
               <div key={plan} className={`relative bg-white rounded-2xl border-2 ${color} p-8 shadow-sm ${badge ? 'shadow-primary-100 shadow-lg scale-105' : ''} transition-transform hover:shadow-md`}>
                 {badge && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary-600 text-white text-xs font-bold px-4 py-1.5 rounded-full">{badge}</div>
                 )}
                 <h3 className="text-xl font-bold text-gray-900">{plan}</h3>
                 <p className="text-gray-500 text-sm mt-1">{desc}</p>
-                <div className="mt-6 mb-8">
+                <div className="mt-6 mb-2">
                   <span className="text-4xl font-extrabold text-gray-900">{price}</span>
                   {period && <span className="text-gray-400 text-sm ml-1">{period}</span>}
                 </div>
+                {trial && (
+                  <div className="mb-6 inline-flex items-center gap-1.5 bg-green-50 border border-green-200 text-green-700 text-xs font-semibold px-3 py-1 rounded-full">
+                    <span>🎉</span> {trial} — no credit card required
+                  </div>
+                )}
+                {!trial && <div className="mb-6" />}
                 <ul className="space-y-3 mb-8">
                   {features.map(f => (
                     <li key={f} className="flex items-center gap-2 text-gray-600 text-sm">
@@ -642,7 +645,7 @@ export default function Landing() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-5xl mb-6">🌍🌾</div>
           <h2 className="text-4xl font-extrabold">Ready to Transform Your Farm?</h2>
-          <p className="mt-4 text-primary-200 text-xl">Join thousands of African farmers already using AgriManager to increase yields, reduce costs, and grow profits.</p>
+          <p className="mt-4 text-primary-200 text-xl">Join thousands of African farmers already using CropMind to increase yields, reduce costs, and grow profits.</p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link to="/register" className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white text-primary-800 px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-50 transition-colors">
               Start Free Today <ArrowRight size={20} />
@@ -667,11 +670,22 @@ export default function Landing() {
               </div>
               <p className="text-sm leading-relaxed">The smart farm management platform built for African farmers. AI-powered, offline-first, and mobile-optimized.</p>
               <div className="flex gap-3 mt-4">
-                {[Twitter, Facebook, Linkedin].map((Icon, i) => (
-                  <div key={i} className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-700 cursor-pointer transition-colors">
-                    <Icon size={14} className="text-gray-400" />
-                  </div>
-                ))}
+                {/* X (Twitter) */}
+                <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-700 cursor-pointer transition-colors">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" className="text-gray-400">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                </div>
+                {/* Facebook */}
+                <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-700 cursor-pointer transition-colors">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" className="text-gray-400">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </div>
+                {/* LinkedIn */}
+                <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-primary-700 cursor-pointer transition-colors">
+                  <Linkedin size={14} className="text-gray-400" />
+                </div>
               </div>
             </div>
             {[

@@ -65,7 +65,7 @@ export default function Register() {
               <Leaf className="w-8 h-8 text-white" />
             </div>
             <div className="text-left">
-              <h1 className="text-2xl font-bold text-white">AgriFarm</h1>
+              <h1 className="text-2xl font-bold text-white">CropMind</h1>
               <p className="text-green-400 text-sm">Management System</p>
             </div>
           </Link>

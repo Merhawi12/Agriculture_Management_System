@@ -1,11 +1,11 @@
 // Routes each role is allowed to visit (null = unrestricted)
 export const ROLE_ROUTES = {
   super_admin:  null,
-  farmer:       ['/dashboard', '/farms', '/crops', '/livestock', '/inventory', '/finance', '/sales', '/marketplace', '/weather', '/predictions', '/monitoring', '/notifications'],
-  farm_manager: ['/dashboard', '/farms', '/crops', '/livestock', '/inventory', '/finance', '/workers', '/equipment', '/sales', '/marketplace', '/weather', '/predictions', '/monitoring', '/notifications'],
-  agronomist:   ['/dashboard', '/crops', '/inventory', '/weather', '/predictions', '/monitoring', '/notifications'],
-  accountant:   ['/dashboard', '/finance', '/inventory', '/sales', '/workers', '/notifications'],
-  worker:       ['/dashboard', '/marketplace', '/weather', '/notifications'],
+  farmer:       ['/dashboard', '/farms', '/crops', '/livestock', '/inventory', '/finance', '/sales', '/marketplace', '/weather', '/predictions', '/monitoring', '/notifications', '/chat', '/billing'],
+  farm_manager: ['/dashboard', '/farms', '/crops', '/livestock', '/inventory', '/finance', '/workers', '/equipment', '/sales', '/marketplace', '/weather', '/predictions', '/monitoring', '/notifications', '/chat', '/billing'],
+  agronomist:   ['/dashboard', '/crops', '/inventory', '/weather', '/predictions', '/monitoring', '/notifications', '/chat'],
+  accountant:   ['/dashboard', '/finance', '/inventory', '/sales', '/workers', '/notifications', '/chat', '/billing'],
+  worker:       ['/dashboard', '/marketplace', '/weather', '/notifications', '/chat'],
 };
 
 export function canAccess(role, route) {

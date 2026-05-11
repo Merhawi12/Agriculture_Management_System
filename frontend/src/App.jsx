@@ -25,6 +25,8 @@ import Monitoring from './pages/Monitoring';
 import Sales from './pages/Sales';
 import Marketplace from './pages/Marketplace';
 import Notifications from './pages/Notifications';
+import Chat from './pages/Chat';
+import Billing from './pages/Billing';
 
 function ProtectedLayout() {
   const { isAuthenticated } = useAuth();
@@ -70,6 +72,8 @@ export default function App() {
           <Route path="/predictions"   element={<Guard path="/predictions"><Predictions /></Guard>} />
           <Route path="/monitoring"    element={<Guard path="/monitoring"><Monitoring /></Guard>} />
           <Route path="/notifications" element={<Guard path="/notifications"><Notifications /></Guard>} />
+          <Route path="/chat"          element={<Guard path="/chat"><Chat /></Guard>} />
+          <Route path="/billing"       element={<Guard path="/billing"><Billing /></Guard>} />
         </Route>
 
         {/* Fallback */}

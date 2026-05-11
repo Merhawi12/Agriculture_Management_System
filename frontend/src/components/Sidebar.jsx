@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard, Sprout, Beef, Package, DollarSign,
   Users, Wrench, ShoppingCart, Cloud, Brain, Satellite, Wheat,
-  UserCog, Map, ShoppingBag, Bell
+  UserCog, Map, ShoppingBag, Bell, MessageCircle, CreditCard
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { canAccess } from '../utils/permissions';
@@ -23,6 +23,8 @@ const NAV_ITEMS = [
   { to: '/predictions',   icon: Brain,           label: 'AI Predictions',   group: 'Tools' },
   { to: '/monitoring',    icon: Satellite,       label: 'Monitoring',       group: 'Tools' },
   { to: '/notifications', icon: Bell,            label: 'Notifications',    group: 'Tools' },
+  { to: '/chat',          icon: MessageCircle,   label: 'Team Chat',        group: 'Connect' },
+  { to: '/billing',       icon: CreditCard,      label: 'Billing',          group: 'Connect' },
 ];
 
 const ROLE_LABELS = {
@@ -108,7 +110,7 @@ export default function Sidebar({ open, setOpen }) {
         {/* Footer */}
         {open && (
           <div className="p-4 border-t border-primary-700 text-xs text-primary-400">
-            <p className="font-medium text-primary-300">AgriFarm</p>
+            <p className="font-medium text-primary-300">CropMind</p>
             <p>Season 2025/2026</p>
           </div>
         )}

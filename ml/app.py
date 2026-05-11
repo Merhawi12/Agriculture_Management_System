@@ -1,5 +1,5 @@
 """
-AgriManager ML Service — FastAPI
+CropMind ML Service — FastAPI
 Models: scikit-learn (RandomForest, LogisticRegression, LinearRegression)
         TensorFlow/Keras (Neural Network for crop yield)
 Port: 5001
@@ -236,7 +236,7 @@ def load_models():
 
 # ── FastAPI app ────────────────────────────────────────────────────────────────
 app = FastAPI(
-    title="AgriManager ML Service",
+    title="CropMind ML Service",
     description="Crop yield, livestock health, soil analysis, and financial forecasting",
     version="1.0.0",
 )

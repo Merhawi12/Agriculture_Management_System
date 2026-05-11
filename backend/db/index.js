@@ -162,7 +162,7 @@ class AsyncJsonStore {
       ].forEach(r => s.insert('sales', r));
 
       [
-        { name:'Admin User',    email:'admin@agrifarm.com', phone:'0700-000-001', role:'super_admin',  status:'active',    farm_ids:[1,2], avatar_color:'bg-red-500',    last_login:'2026-05-10 07:30:00', password_hash:'hashed_admin123' },
+        { name:'Admin User',    email:'admin@cropmind.app', phone:'0700-000-001', role:'super_admin',  status:'active',    farm_ids:[1,2], avatar_color:'bg-red-500',    last_login:'2026-05-10 07:30:00', password_hash:'hashed_admin123' },
         { name:'James Mwangi', email:'james@farm.com',     phone:'0712-345-678', role:'farm_manager', status:'active',    farm_ids:[1],   avatar_color:'bg-blue-600',   last_login:'2026-05-10 07:45:00', password_hash:'hashed_james123' },
         { name:'Fatuma Ochieng',email:'fatuma@farm.com',   phone:'0723-456-789', role:'agronomist',   status:'active',    farm_ids:[1],   avatar_color:'bg-green-600',  last_login:'2026-05-09 08:10:00', password_hash:'hashed_fatuma123' },
         { name:'Peter Kamau',  email:'peter@farm.com',     phone:'0734-567-890', role:'worker',       status:'active',    farm_ids:[1],   avatar_color:'bg-purple-500', last_login:'2026-05-10 07:52:00', password_hash:'hashed_peter123' },
@@ -171,7 +171,7 @@ class AsyncJsonStore {
         { name:'Mary Njeri',   email:'mary@farm.com',      phone:'0767-890-123', role:'farm_manager', status:'active',    farm_ids:[2],   avatar_color:'bg-teal-500',   last_login:'2026-05-08 08:00:00', password_hash:'hashed_mary123' },
         { name:'Samuel Kibet', email:'samuel@farm.com',    phone:'0778-901-234', role:'worker',       status:'inactive',  farm_ids:[1],   avatar_color:'bg-cyan-500',   last_login:'2026-05-07 07:30:00', password_hash:'hashed_samuel123' },
         { name:'Aisha Hassan', email:'aisha@farm.com',     phone:'0789-012-345', role:'accountant',   status:'suspended', farm_ids:[1],   avatar_color:'bg-pink-500',   last_login:'2026-04-30 09:15:00', password_hash:'hashed_aisha123' },
-        { name:'Demo Viewer',  email:'demo@agrifarm.com',  phone:'0700-000-010', role:'worker',       status:'active',    farm_ids:[1,2], avatar_color:'bg-gray-500',   last_login:'2026-05-10 06:00:00', password_hash:'hashed_demo123' },
+        { name:'Demo Viewer',  email:'demo@cropmind.app',  phone:'0700-000-010', role:'worker',       status:'active',    farm_ids:[1,2], avatar_color:'bg-gray-500',   last_login:'2026-05-10 06:00:00', password_hash:'hashed_demo123' },
       ].forEach(r => s.insert('users', r));
 
       [

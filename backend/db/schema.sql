@@ -1,5 +1,5 @@
 -- ============================================================
--- AgriManager — Supabase Schema
+-- CropMind — Supabase Schema
 -- Run this in your Supabase SQL Editor (Dashboard → SQL Editor)
 -- ============================================================
 
@@ -292,7 +292,7 @@ CREATE TABLE IF NOT EXISTS notifications (
 -- ============================================================
 
 INSERT INTO users (name, email, phone, role, status, farm_ids, avatar_color, last_login, password_hash) VALUES
-  ('Admin User',    'admin@agrifarm.com', '0700-000-001', 'super_admin',  'active',    '[1,2]', 'bg-red-500',    '2026-05-10 07:30:00', 'hashed_admin123'),
+  ('Admin User',    'admin@cropmind.app', '0700-000-001', 'super_admin',  'active',    '[1,2]', 'bg-red-500',    '2026-05-10 07:30:00', 'hashed_admin123'),
   ('James Mwangi',  'james@farm.com',     '0712-345-678', 'farm_manager', 'active',    '[1]',   'bg-blue-600',   '2026-05-10 07:45:00', 'hashed_james123'),
   ('Fatuma Ochieng','fatuma@farm.com',    '0723-456-789', 'agronomist',   'active',    '[1]',   'bg-green-600',  '2026-05-09 08:10:00', 'hashed_fatuma123'),
   ('Peter Kamau',   'peter@farm.com',     '0734-567-890', 'worker',       'active',    '[1]',   'bg-purple-500', '2026-05-10 07:52:00', 'hashed_peter123'),
@@ -301,7 +301,7 @@ INSERT INTO users (name, email, phone, role, status, farm_ids, avatar_color, las
   ('Mary Njeri',    'mary@farm.com',      '0767-890-123', 'farm_manager', 'active',    '[2]',   'bg-teal-500',   '2026-05-08 08:00:00', 'hashed_mary123'),
   ('Samuel Kibet',  'samuel@farm.com',    '0778-901-234', 'worker',       'inactive',  '[1]',   'bg-cyan-500',   '2026-05-07 07:30:00', 'hashed_samuel123'),
   ('Aisha Hassan',  'aisha@farm.com',     '0789-012-345', 'accountant',   'suspended', '[1]',   'bg-pink-500',   '2026-04-30 09:15:00', 'hashed_aisha123'),
-  ('Demo Viewer',   'demo@agrifarm.com',  '0700-000-010', 'worker',       'active',    '[1,2]', 'bg-gray-500',   '2026-05-10 06:00:00', 'hashed_demo123')
+  ('Demo Viewer',   'demo@cropmind.app',  '0700-000-010', 'worker',       'active',    '[1,2]', 'bg-gray-500',   '2026-05-10 06:00:00', 'hashed_demo123')
 ON CONFLICT (email) DO NOTHING;
 
 INSERT INTO farms (name, owner, location, total_area_ha, farm_type, status, established, phone, email, description, gps_lat, gps_lng, boundary, soil, fields) VALUES

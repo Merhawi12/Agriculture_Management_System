@@ -1643,7 +1643,7 @@
     "rows": [
       {
         "name": "Admin User",
-        "email": "admin@agrifarm.com",
+        "email": "admin@cropmind.app",
         "phone": "0700-000-001",
         "role": "super_admin",
         "status": "active",
@@ -1780,7 +1780,7 @@
       },
       {
         "name": "Demo Viewer",
-        "email": "demo@agrifarm.com",
+        "email": "demo@cropmind.app",
         "phone": "0700-000-010",
         "role": "worker",
         "status": "active",
