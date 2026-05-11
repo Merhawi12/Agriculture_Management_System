@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const AuthContext = createContext(null);
 
-const API = axios.create({ baseURL: '/api', timeout: 10000 });
+const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || '/api', timeout: 10000 });
 
 export function AuthProvider({ children }) {
   const [token, setToken] = useState(() => localStorage.getItem('agri_token'));
